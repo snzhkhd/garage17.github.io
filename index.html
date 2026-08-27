@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АвтоМастер | Профессиональный автосервис</title>
+    <style>
+        /* --- Сброс стилей и переменные --- */
+        :root {
+            --primary-color: #e63946; /* Красный акцент */
+            --dark-bg: #1d3557;       /* Темно-синий фон */
+            --light-bg: #f1faee;      /* Светлый фон */
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- Шапка (Header) --- */
+        header {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .logo span { color: var(--white); }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover { color: var(--primary-color); transition: 0.3s; }
+
+        .phone-btn {
+            background: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Мобильное меню (скрыто на ПК) */
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- Главный экран (Hero) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), 
+                        url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover { transform: scale(1.05); }
+
+        /* --- Услуги --- */
+        .services {
+            padding: 80px 5%;
+            background: var(--light-bg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--dark-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .service-card:hover { transform: translateY(-5px); }
+        .service-icon { font-size: 3rem; margin-bottom: 15px; }
+
+        /* --- Преимущества --- */
+        .features {
+            padding: 80px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .feature-item {
+            flex-basis: 300px;
+            margin-bottom: 20px;
+        }
+
+        /* --- Контакты и Форма --- */
+        .contact {
+            padding: 80px 5%;
+            background: var(--dark-bg);
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- Адаптивность --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { display: none; } /* Упрощение для теста: скрываем меню на мобильном */
+            .menu-toggle { display: block; }
+            .contact { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">Авто<span>Мастер</span></div>
+        <nav>
+            <ul>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#features">Преимущества</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+        <a href="tel:+79990000000" class="phone-btn">+7 (999) 000-00-00</a>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <h1>Ремонт вашего авто<br>с гарантией качества</h1>
+        <p>Полная диагностика, ремонт двигателя и ходовой части. Честные цены и сроки.</p>
+        <a href="#contact" class="cta-button">Записаться на ремонт</a>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Техническое обслуживание</h3>
+                <p>Замена масла, фильтров, тормозных колодок. Все расходники в наличии.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Ремонт двигателя</h3>
+                <p>Капитальный ремонт, замена ГРМ, диагностика неисправностей.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Ходовая часть</h3>
+                <p>Ремонт подвески, замена амортизаторов, рычагов и сайлентблоков.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Компьютерная диагностика</h3>
+                <p>Выявление ошибок электроники, сброс сервисных интервалов.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="features" class="features">
+        <div class="feature-item">
+            <h3>🛡️ Гарантия до 1 года</h3>
+            <p>Мы уверены в качестве наших работ и запчастей.</p>
+        </div>
+        <div class="feature-item">
+            <h3>💰 Честные цены</h3>
+            <p>Стоимость согласовывается ДО начала ремонта.</p>
+        </div>
+        <div class="feature-item">
+            <h3>⏱️ Соблюдение сроков</h3>
+            <p>Ценим ваше время, возвращаем машину точно в срок.</p>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="contact-info">
+            <h2>Свяжитесь с нами</h2>
+            <p>Оставьте заявку, и мы перезвоним вам в течение 15 минут для консультации.</p>
+            <br>
+            <p>📍 <strong>Адрес:</strong> г. Москва, ул. Ленина, д. 10, бокс 5</p>
+            <p>📞 <strong>Телефон:</strong> +7 (999) 000-00-00</p>
+            <p>🕒 <strong>Режим работы:</strong> Ежедневно с 9:00 до 21:00</p>
+        </div>
+        
+        <div class="contact-form">
+            <form onsubmit="event.preventDefault(); alert('Спасибо! Это тестовая форма. На реальном сайте здесь будет отправка.');">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Ваш телефон" required>
+                <textarea rows="4" placeholder="Опишите проблему (необязательно)"></textarea>
+                <button type="submit">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 АвтоМастер. Тестовый лендинг.</p>
+    </footer>
+
+    <script>
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
