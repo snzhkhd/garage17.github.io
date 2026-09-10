@@ -105,6 +105,16 @@ nav a:hover{color:var(--accent-2)}
 .overline{display:inline-block;color:var(--accent);font-weight:800;letter-spacing:2.5px;text-transform:uppercase;font-size:.78rem;margin-bottom:12px}
 .section-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem)}
 
+/* ---------- FAQ ---------- */
+.faq-list{display:flex;flex-direction:column;gap:12px;max-width:820px}
+.faq-item{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--line);border-radius:14px;padding:0;transition:.25s}
+.faq-item:hover{border-color:rgba(255,122,26,.4)}
+.faq-item summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:700;font-size:1.05rem;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:1.5rem;color:var(--accent);font-weight:400;flex-shrink:0}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{padding:0 24px 20px;color:var(--muted);line-height:1.6}
+
 /* ---------- Карточки ---------- */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:20px}
 .card{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:.3s}
@@ -305,6 +315,44 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     </div>
   </div>
 </section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="background:linear-gradient(180deg,var(--bg),var(--card-2))">
+  <div class="container">
+    <div class="section-head">
+      <span class="overline">Вопросы и ответы</span>
+      <h2>Частые вопросы</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Где находится автосервис «Гараж 17» в Ейске?</summary><p>Мы находимся по адресу: г. Ейск, СНТ «Спутник 17» — возле стелы «Ейск», на выезде из города. Удобно заехать по пути.</p></details>
+      <details class="faq-item"><summary>Работаете ли вы в выходные и ночью?</summary><p>Да, мы работаем круглосуточно.</p></details>
+      <details class="faq-item"><summary>Сколько стоит сход-развал в Ейске?</summary><p>Сход-развал в «Гараж 17» стоит от 1 000 до 3 000 ₽ в зависимости от автомобиля. При комплексной замене ходовой части — сход-развал делаем бесплатно.</p></details>
+      <details class="faq-item"><summary>Какая цена на компьютерную диагностику?</summary><p>Компьютерная диагностика — от 500 ₽. Подключим сканер, найдём ошибки, расшифруем и подскажем, что делать.</p></details>
+      <details class="faq-item"><summary>Делаете ли вы шиномонтаж в Ейске?</summary><p>Да, шиномонтаж от 200 ₽ за колесо: переобувка, балансировка, ремонт проколов и порезов. Работаем с любыми радиусами.</p></details>
+      <details class="faq-item"><summary>Сколько стоит замена масла?</summary><p>Замена масла — 500 ₽. Если заказываете масло у нас — замена делаем бесплатно.</p></details>
+      <details class="faq-item"><summary>Есть ли гарантия на работы?</summary><p>Да, на все выполненные работы даём гарантию. Отвечаем за то, что делаем.</p></details>
+      <details class="faq-item"><summary>Можно ли подождать машину в сервисе?</summary><p>Да, у нас есть зона ожидания с кофе и Wi-Fi. Пока машина в работе — вы отдыхаете.</p></details>
+      <details class="faq-item"><summary>Как записаться на ремонт?</summary><p>Самый быстрый способ — написать Роберту в MAX (ссылка в шапке сайта) или позвонить по телефону +7 900 287-68-32. Ответим в течение нескольких минут.</p></details>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Где находится автосервис «Гараж 17» в Ейске?","acceptedAnswer":{"@type":"Answer","text":"г. Ейск, СНТ «Спутник 17» — возле стелы «Ейск», на выезде из города."}},
+    {"@type":"Question","name":"Работаете ли вы в выходные и ночью?","acceptedAnswer":{"@type":"Answer","text":"Да, круглосуточно, 24/7, без выходных и праздников."}},
+    {"@type":"Question","name":"Сколько стоит сход-развал в Ейске?","acceptedAnswer":{"@type":"Answer","text":"От 1 000 до 3 000 ₽. При комплексной замене ходовой — бесплатно."}},
+    {"@type":"Question","name":"Какая цена на компьютерную диагностику?","acceptedAnswer":{"@type":"Answer","text":"От 500 ₽."}},
+    {"@type":"Question","name":"Делаете ли вы шиномонтаж в Ейске?","acceptedAnswer":{"@type":"Answer","text":"Да, шиномонтаж от 200 ₽ за колесо."}},
+    {"@type":"Question","name":"Сколько стоит замена масла?","acceptedAnswer":{"@type":"Answer","text":"500 ₽, при заказе масла у нас — бесплатно."}},
+    {"@type":"Question","name":"Ремонтируете ли вы двигатели и коробки?","acceptedAnswer":{"@type":"Answer","text":"Нет, капитальный ремонт двигателей и АКПП не делаем. Сцепление поменять можем."}},
+    {"@type":"Question","name":"Есть ли гарантия на работы?","acceptedAnswer":{"@type":"Answer","text":"Да, на все выполненные работы даём гарантию."}}
+  ]
+}
+</script>
 
 <!-- ================= КОНТАКТЫ ================= -->
 <section id="contacts">
